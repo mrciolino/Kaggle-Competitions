@@ -43,13 +43,8 @@ def data_split(train_data, test_data):
     return target_train, features_train, features_test
 
 
-def bar_graph(file, clf):
-    data = pd.read_csv(file, index_col=0)
-    numerical_features = data[["MSSubClass", "LotArea", "LotFrontage", "OverallQual", "OverallCond", "YearBuilt",
-                               "ExterQual", "ExterCond", "1stFlrSF", "2ndFlrSF", "FullBath", "HalfBath",
-                               "TotRmsAbvGrd", "GarageArea", "Fireplaces", "PoolArea"]]
-    feature_names = numerical_features.columns
-    x = np.arange(len(feature_names))
-    plt.bar(x, clf.feature_importances_.ravel())
-    plt.xticks(x + 0.5, feature_names, rotation=30)
-    plt.show()
+def create_submission(clf, features_test_final):
+    prediction = clf.predict(features_test_final)
+    ids = range(1461, 2920)
+    output = pd.DataFrame({'Id': ids, 'SalePrice': prediction})
+    output.to_csv('Kaggle Competetions/House Prices/submission.csv', index=False)

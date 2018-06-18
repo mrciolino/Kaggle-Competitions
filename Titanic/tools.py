@@ -57,7 +57,6 @@ def data_split(train_data, test_data):
     features_test = []
 
     for item in train_data:
-        print item
         target_train.append(item[0])
         features_train.append(item[1:])
 

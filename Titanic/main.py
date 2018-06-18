@@ -36,6 +36,7 @@ features_train, features_test, labels_train, labels_test = train_test_split(
 
 
 ########################################  Tuned Support Vector Machine  ############################################
+"""
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 
@@ -45,9 +46,10 @@ clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
 print("Tuned SVM Accuracy Score: %.2f Percent" % (100 * clf.best_score_))
 print clf.best_estimator_
-
+"""
 
 ##################################### Tuned Logistic Regression ##############################################
+"""
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 
@@ -57,7 +59,7 @@ clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
 print("Tuned Logistic Regression Accuracy: %.2f Percent" % (100 * clf.best_score_))
 print clf.best_estimator_
-
+"""
 ##################################### Tuned AdaBoostClassifier  #############################################
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.model_selection import GridSearchCV
@@ -72,8 +74,14 @@ print("Tuned AdaBoostClassifier Accuracy: %.2f Percent" % (100 * clf_final.best_
 print clf_final.best_estimator_
 bar_graph("Kaggle Competetions/Titanic/titanic - data/train.csv", clf_final.best_estimator_)
 
+# Validation
+# confusion_matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(labels_test, pred)
+print(cm)
 
 ####################### Tuned AdaBoostClassifier With Priniciple Component Analysis #########################
+"""
 from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.ensemble import AdaBoostClassifier
@@ -89,6 +97,7 @@ gs = GridSearchCV(estimator=pipeline, param_grid=parameters, scoring='accuracy',
 gs.fit(features_train, labels_train)
 print('Tuned AdaBoostClassifier With PCA Accuracy: %.3f Percent' % (100 * gs.best_score_))
 print gs.best_estimator_
+"""
 
 # predicting the test data and formatting for submission
 prediction = clf_final.predict(features_test_final)
