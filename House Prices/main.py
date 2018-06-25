@@ -9,7 +9,7 @@ more influences price negotiations than the number of bedrooms or a white-picket
 competition challenges you to predict the final price of each home.
 """
 
-# print __doc__
+print __doc__
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -50,7 +50,7 @@ features_test_final_Kbest = selection.transform(features_test_final)
 # Tuned Support Vector Regression Classifier using GridSearchCV
 from sklearn.svm import SVR
 from sklearn.model_selection import GridSearchCV
-grid_values = {'C': [550, 600, 650], 'epsilon': np.linspace(15, 25, 5), }
+grid_values = {'C': [550, 600, 650], 'epsilon': np.linspace(15, 25, 3), }
 clf = GridSearchCV(SVR(kernel='linear'), grid_values)
 
 # Kfold Corss Validation
