@@ -1,6 +1,0 @@
-
-import sys
-sys.path.append("Kaggle Competetions/DataScienceLondon")
-
-from tools import data_format
-data_format()

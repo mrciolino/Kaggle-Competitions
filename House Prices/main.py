@@ -17,8 +17,8 @@ import sys
 sys.path.append("Kaggle Competetions/House Prices")
 
 from tools import data_format
-train_data = data_format("Kaggle Competetions/House Prices/House Prices - Data/train.csv")
-test_data = data_format("Kaggle Competetions/House Prices/House Prices - Data/test.csv")
+train_data = data_format("House Prices/House Prices - Data/train.csv")
+test_data = data_format("House Prices/House Prices - Data/test.csv")
 
 from tools import data_split
 from sklearn.model_selection import train_test_split

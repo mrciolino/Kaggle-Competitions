@@ -1,5 +1,0 @@
-This is a synthetic data set of 40 features, representing objects from two classes (labeled as 0 or 1). The
-training set has 1000 samples and the testing set has 9000.
-
-This competition is a practice ground for trying, sharing, and creating examples of sklearn's
-classification abilities.
