@@ -164,7 +164,6 @@ def data_creation_method(create_new_data, pickle_new_data, train_data_size):
     test_data_file = '/Users/mrciolino/Documents/Documents/PythonLearning/Kaggle Competetions/Home Credit/Home_Credit_Data/application_test.csv'
     data_pickle_file = '/Users/mrciolino/Documents/Documents/PythonLearning/Kaggle Competetions/Home Credit/pickled_data.pickle'
 
-
     # Create Pickled data or load pickled data
     if os.path.isfile(data_pickle_file) == False and create_new_data == False:
         print "You do not have a pickle_data file, set create_new_data = True to created dataset"
@@ -196,10 +195,27 @@ def data_creation_method(create_new_data, pickle_new_data, train_data_size):
     return features_train, features_test, labels_train, labels_test, features_test_final
 
 
-def save_clf_data_to_pickle(clf_file, clf):
-    with open(clf_file, 'wb') as f:
+def save_classifier(clf):
+    clf_pickle_file = '/Users/mrciolino/Documents/Documents/PythonLearning/Kaggle Competetions/Home Credit/pickled_clf.pickle'
+    with open(clf_pickle_file, 'wb') as f:
         pickle.dump(clf, f)
 
 
-def create_submission():
-    pass
+def create_submission(pred):
+    file = '/Users/mrciolino/Documents/Documents/PythonLearning/Kaggle Competetions/Home Credit/Home_Credit_Data/application_test.csv'
+    df = pd.read_csv(file)
+    pred = abs(pred)
+
+    i = 0
+    id = []
+    target = []
+
+    for label in df['SK_ID_CURR']:
+        # line = ("%s,%.2f" % (label, pred[i]))
+        id.append(label)
+        target.append(pred[i])
+        i += 1
+
+    submission = pd.DataFrame({'SK_ID_CURR': id, 'TARGET': target})
+    submission.to_csv('/Users/mrciolino/Documents/Documents/PythonLearning/Kaggle Competetions/Home Credit/submission.csv',
+                      index=False)
