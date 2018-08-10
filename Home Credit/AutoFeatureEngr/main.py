@@ -1,6 +1,3 @@
-# Tutorial found at kaggle kernel Will K. - Intro to Auto Feature Engr
-# https://www.kaggle.com/willkoehrsen/automated-feature-engineering-basics
-
 import pickle
 import featuretools as ft
 from progress.bar import FillingSquaresBar
