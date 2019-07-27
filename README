@@ -1,8 +1,7 @@
-Collection of code for Kaggle Competitions I have completed.
+# Collection of Kaggle Competitions:
 
-To Learn:
+The getting started folder contains the first data science projects that I have ever done back in finals week of 2018.
 
-Featuretools
-TPOT
-NoSQL,SQL
-Spark/Hadoop
+The rest of the projects are well documented kaggle competitions:
+
+#### Wikipedia Web Traffic
